@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.route("/").get(async (req, res) => {
   try {
-    const cars = await Car.find();
+    const cars = await Car.find().populate("carReviews");
 
     res.status(200).send({
       message: "success",

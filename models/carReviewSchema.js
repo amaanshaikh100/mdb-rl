@@ -20,6 +20,8 @@ const carReviewSchema = mongoose.Schema(
   }
 );
 
+carReviewSchema.virtual("");
+
 // carReviewSchema.pre(/^find/, function (next) {
 //   this.car = this.populate({
 //     path: "car",
