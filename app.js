@@ -2,10 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const Product = require("./models/productSchema");
 const productRoutes = require("./routes/productRoutes");
+const carRoutes = require("./routes/carRoutes");
+const carReviewRoutes = require("./routes/carReviews");
 const userRoutes = require("./routes/userRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
-const Product = require("./models/productSchema");
 
 const app = express();
 
@@ -28,6 +30,9 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // API
+app.use("/api/v1/car", carRoutes);
+app.use("/api/v1/car-review", carReviewRoutes);
+
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/review", reviewRoutes);
 app.use("/api/v1/user", userRoutes);
